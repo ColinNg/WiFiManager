@@ -1,5 +1,6 @@
 import wifimgr
 import blink_ip
+import factory_reset
 
 
 wlan = wifimgr.get_connection()
@@ -12,5 +13,6 @@ if wlan is None:
 # Main Code goes here, wlan is a working network.WLAN(STA_IF) instance.
 ip = wlan.ifconfig()[0]
 print("ESP OK. IP Address: ", ip)
+factory_reset.check_for_reset()
 blink_ip.blink_ip(ip)
 
